@@ -8,7 +8,8 @@ import json
 
 driver = webdriver.Chrome()
 # search samsung with handphone category
-url = "https://shopee.co.id/search?facet=11044476&keyword=samsung&noCorrection=true&page=0"
+# url = "https://shopee.co.id/search?facet=11044476&keyword=samsung&noCorrection=true&page=0"
+url = "https://shopee.co.id/search?facet=11044476&keyword=samsung&noCorrection=true&order=desc&page=1&sortBy=price" 
 driver.get(url)
 all_data = []
 
@@ -30,7 +31,7 @@ try:
     print("Total pages: ", total_page.text)
     
     # next page until total_page
-    for i in range(2, int(total_page.text)):
+    for i in range(2, int(total_page.text) + 1):
         print("Current Page: ", i )
         try:
             # find search result element class
